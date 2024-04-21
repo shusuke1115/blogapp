@@ -27,6 +27,10 @@ body {
   font-size: 1em;
   color: $text-base-color;
 }
+a{
+  text-decoration: none;
+  color:$text-base-color
+}
 
 .container {
   padding: 16px 16px;
