@@ -1,12 +1,12 @@
 class ArticlesController < ApplicationController
  before_action :set_articles, only: [:show, :edit, :update]
- 
+
   def index
-   @articles = Article.all
+    raise StandardError
+    @articles = Article.all
   end
 
  def show
- 
  end
 
  def new
@@ -24,14 +24,14 @@ class ArticlesController < ApplicationController
  end
 
  def edit
- 
+
  end
 
  def update
- 
+
   if @article.update(article_params)
-    redirect_to article_path(@article),notice: "更新できました"
-  else 
+    redirect_to article_path(@article),notice: '更新できました'
+  else
     flash.now[:error] = '更新できませんでした。'
     render :edit
   end
@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
  def destroy
   article = Article.find(params[:id])
   article.destroy!
-  redirect_to root_path, notice: "削除に成功しました"
+  redirect_to root_path, notice: '削除に成功しました'
  end
 
  private
