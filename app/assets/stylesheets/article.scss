@@ -23,7 +23,7 @@ $avatar-size: 32px;
       cursor: pointer;
       width: $avatar-size;
       height: $avatar-size;
-      border-radius: 100%;
+      border-radius: 10%;
       margin-right: 16px;
     }
 
@@ -34,13 +34,13 @@ $avatar-size: 32px;
   }
 
   &_content {
-    padding: 24px 0 32px;
+    padding: 24px 32px;
   }
 
   &_heart {
     position: absolute;
-    right: 16px;
-    bottom: 16px;
+    right: 1px;
+    bottom: 1px;
 
     img {
       width: $heart-size;
