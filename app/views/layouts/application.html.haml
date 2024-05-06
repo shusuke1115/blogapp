@@ -22,6 +22,8 @@
             .dropdown-content
               %a{:href => "#"} プロフィール
               = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
+          .header_toHome 
+            = link_to 'トップページ', root_path
         - else
           = link_to 'ログイン', new_user_session_path, class: 'header_loginBtn'
 
