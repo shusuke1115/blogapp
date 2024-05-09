@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     # コメントは特定の記事に対して何個も追加できる
     resources :comments, only: [:new, :create]
     # 自分にとって特定の記事にたいして一個しか言い値がないからresource
-    resource :like, only: [:create]
+    resource :like, only: [:create, :destroy]
   end
   resource :profile, only: [:show, :edit, :update]
 end
