@@ -30,26 +30,26 @@ class ArticlesController < ApplicationController
 
   def update
     @article = current_user.articles.find(params[:id])
-    if @article.save
+    if @article.update(article_params)
       redirect_to article_path(@article),notice: '更新できました'
     else
       flash.now[:error] = '更新できませんでした。'
       render :edit
     end
- end
+end
 
- def destroy
+def destroy
   article = current_user.articles.find(params[:id])
   article.destroy!
   redirect_to root_path, notice: '削除に成功しました'
- end
+end
 
- private
- def article_params
+private
+def article_params
   params.require(:article).permit(:title,:content,:eyecatch)
- end
+end
 
- def set_articles
+def set_articles
   @article = Article.find(params[:id])
   end
 end
