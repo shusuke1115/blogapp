@@ -6,7 +6,8 @@
       .card_title= article.title
       .card_heart
         = image_tag 'heart.svg'
-        %span 23
+        %span
+          = article.likes_count
       .card_detail
         = image_tag article.user.avatar_image 
         %div
