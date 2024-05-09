@@ -25,10 +25,24 @@ class User < ApplicationRecord
   delegate :birthday, :gender, :age, to: :profile, allow_nil: true        
 
   has_many :articles, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :favorite_articles, through: :likes, source: :article
+
+  # has_many :articles, through: :likes, 
+  # ほんとはこれで十分
+  # でもややこしいからfavorite_articlesにしてる
+  # sourceとはfavorite_articlesはarticleから来てると言っている
+  # throughはlikeを通してということ
+
   has_one :profile, dependent: :destroy
+  
 
   def has_written?(article)
     articles.exists?(id: article.id)
+  end
+
+  def has_liked?(article)
+    likes.exists?(article_id: article.id)
   end
 
   def display_name
