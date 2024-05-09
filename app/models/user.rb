@@ -25,6 +25,7 @@ class User < ApplicationRecord
   delegate :birthday, :gender, :age, to: :profile, allow_nil: true        
 
   has_many :articles, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_one :profile, dependent: :destroy
 
   def has_written?(article)
